@@ -23,10 +23,10 @@
 
         for(var i = 0; i < 365; i++) {
           currentDate = new Date(currentDate.getTime() + 24 * 60 * 60 * 1000);
+          console.log(normSinv(Math.random()));
 
           var newPrice = projectStockPrice(currentPrice, meanDailyChange, stdDevDailyChange);
 
-          console.log(newPrice - currentPrice);
           currentPrice = newPrice;
 
           data.push({
