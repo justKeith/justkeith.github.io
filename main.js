@@ -14,7 +14,7 @@
       if (params.mean)   meanDailyChange   = parseFloat(params.mean);
       if (params.std)    stdDevDailyChange = parseFloat(params.std);
       if (params.start)  starting          = parseFloat(params.start);
-      if (params.start)  count             = parseFloat(params.count);
+      if (params.count)  count             = parseFloat(params.count);
 
       var sims = [];
 
