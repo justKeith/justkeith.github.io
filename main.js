@@ -1,7 +1,7 @@
 (function() {
       // These are based on the last 20 years.
-      const meanDailyChange = 0.001;
-      const stdDevDailyChange = 0.003;
+      var meanDailyChange = 0.001;
+      var stdDevDailyChange = 0.003;
 
       const params = Object.fromEntries(
         location.search.slice(1).split('&').map(
