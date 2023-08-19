@@ -1,7 +1,7 @@
 (function() {
       // These are based on the last 20 years.
-      var meanDailyChange = 0.001;
-      var stdDevDailyChange = 0.003;
+      var meanDailyChange = 0.0003626870482;
+      var stdDevDailyChange = 0.0121599971;
       var starting = 4300;
 
       const params = Object.fromEntries(
