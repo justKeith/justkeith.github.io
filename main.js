@@ -12,7 +12,7 @@
         currentPrice = projectStockPrice(currentPrice, meanDailyChange, stdDevDailyChange)
 
         data.push({
-            date: currentDate.toJSON().substring(0, 10),
+            date: currentDate,
             value: currentPrice
         });
       }
