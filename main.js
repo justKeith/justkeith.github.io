@@ -1,7 +1,16 @@
 (function() {
       // These are based on the last 20 years.
-      const meanDailyChange = 0.002;
+      const meanDailyChange = 0.001;
       const stdDevDailyChange = 0.003;
+
+      const params = Object.fromEntries(
+        location.search.slice(1).split('&').map(
+          (pair) => pair.split('=')
+        )
+      );
+
+      if (params.mean)  meanDailyChange   = parseFloat(params.mean);
+      if (params.drift) stdDevDailyChange = parseFloat(params.drift);
 
       for(var i = 0; i < 3; i++) {
         simulateYear();
