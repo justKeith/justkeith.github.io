@@ -3,21 +3,27 @@
       const meanDailyChange = 0.00008;
       const stdDevDailyChange = 0.00012;
 
-      let data = [],
-          currentDate = new Date(),
-          currentPrice = 1000;
-
-      for(var i = 0; i < 365; i++) {
-        currentDate = new Date(currentDate.getTime() + 24 * 60 * 60 * 1000);
-        currentPrice = projectStockPrice(currentPrice, meanDailyChange, stdDevDailyChange)
-
-        data.push({
-            date: currentDate,
-            value: currentPrice
-        });
+      for(vat i = 0; i < 1000; i++) {
+        simulateYear();
       }
 
-      displayGraph(data);
+      function simulateYear() {
+        let data = [],
+            currentDate = new Date(),
+            currentPrice = 1000;
+
+        for(var i = 0; i < 365; i++) {
+          currentDate = new Date(currentDate.getTime() + 24 * 60 * 60 * 1000);
+          currentPrice = projectStockPrice(currentPrice, meanDailyChange, stdDevDailyChange)
+
+          data.push({
+              date: currentDate,
+              value: currentPrice
+          });
+        }
+
+        displayGraph(data);
+      }
 
       function projectStockPrice(currPrice, meanDailyChange, stdDevDailyChange) {
         const drift = meanDailyChange - (stdDevDailyChange * stdDevDailyChange) / 2;
