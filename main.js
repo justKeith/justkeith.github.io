@@ -1,7 +1,7 @@
 (function() {
       // These are based on the last 20 years.
-      const meanDailyChange = 0.00008;
-      const stdDevDailyChange = 0.00012;
+      const meanDailyChange = 0.008;
+      const stdDevDailyChange = 0.012;
 
       let data = [],
           currentDate = new Date(),
