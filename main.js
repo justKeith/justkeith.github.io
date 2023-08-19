@@ -131,7 +131,7 @@
     
         // Add Y axis
         const y = d3.scaleLinear()
-          .domain([(starting * 0.8), d3.max(data, function(d) { return +d.value; })])
+          .domain([(d3.min(data, function(d) { return +d.value; }) * 0.95), d3.max(data, function(d) { return +d.value; })])
           .range([ height, 0 ]);
         svg.append("g")
           .call(d3.axisLeft(y));
