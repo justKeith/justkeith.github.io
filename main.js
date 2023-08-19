@@ -2,6 +2,7 @@
       // These are based on the last 20 years.
       var meanDailyChange = 0.001;
       var stdDevDailyChange = 0.003;
+      var starting = 4300;
 
       const params = Object.fromEntries(
         location.search.slice(1).split('&').map(
@@ -9,8 +10,9 @@
         )
       );
 
-      if (params.mean)  meanDailyChange   = parseFloat(params.mean);
-      if (params.drift) stdDevDailyChange = parseFloat(params.drift);
+      if (params.mean)   meanDailyChange   = parseFloat(params.mean);
+      if (params.std)    stdDevDailyChange = parseFloat(params.std);
+      if (params.start)  startinge         = parseFloat(params.start);
 
       for(var i = 0; i < 3; i++) {
         simulateYear();
@@ -130,7 +132,7 @@
     
         // Add Y axis
         const y = d3.scaleLinear()
-          .domain([980, d3.max(data, function(d) { return +d.value; })])
+          .domain([(starting * 0.8), d3.max(data, function(d) { return +d.value; })])
           .range([ height, 0 ]);
         svg.append("g")
           .call(d3.axisLeft(y));
