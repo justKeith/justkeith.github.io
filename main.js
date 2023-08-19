@@ -18,10 +18,9 @@
         simulateYear(starting);
       }
 
-      function simulateYear() {
+      function simulateYear(currentPrice) {
         let data = [],
-            currentDate = new Date(),
-            currentPrice = 1000;
+            currentDate = new Date();
 
         for(var i = 0; i < 365; i++) {
           currentDate = new Date(currentDate.getTime() + 24 * 60 * 60 * 1000);
