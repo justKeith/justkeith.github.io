@@ -4,7 +4,7 @@
       const stdDevDailyChange = 0.00012;
 
       let data = [],
-          currentDate = Date.now(),
+          currentDate = new Date(),
           currentPrice = 1000;
 
       for(var i = 0; i < 365; i++) {
