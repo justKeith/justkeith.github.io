@@ -130,18 +130,18 @@
         const xMax = d3.max(data, function(d) { return d3.max(d, function(e) { return e.date; }); });
 
         const x = d3.scaleTime()
-          .domain([xMin, xMax]])
+          .domain([xMin, xMax])
           .range([ 0, width ]);
         svg.append("g")
           .attr("transform", `translate(0, ${height})`)
           .call(d3.axisBottom(x));
     
-          // Add Y axis
-          const yMin = d3.extent(data, function(d) { return d3.min(d, function(e) { return +e.value; }); })  
-          const yMax = d3.extent(data, function(d) { return d3.max(d, function(e) { return +e.value; }); })  
+        // Add Y axis
+        const yMin = d3.extent(data, function(d) { return d3.min(d, function(e) { return +e.value; }); })  
+        const yMax = d3.extent(data, function(d) { return d3.max(d, function(e) { return +e.value; }); })  
   
         const y = d3.scaleLinear()
-          .domain([yMin, yMax]])
+          .domain([yMin, yMax])
           .range([ height, 0 ]);
         svg.append("g")
           .call(d3.axisLeft(y));
