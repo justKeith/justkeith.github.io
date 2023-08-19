@@ -14,9 +14,13 @@
       if (params.std)    stdDevDailyChange = parseFloat(params.std);
       if (params.start)  starting          = parseFloat(params.start);
 
-      for(var i = 0; i < 3; i++) {
-        simulateYear(starting);
+      var sims = [];
+
+      for(var i = 0; i < 5; i++) {
+        sims.push( simulateYear(starting) );
       }
+
+      displayGraph(sims);
 
       function simulateYear(currentPrice) {
         let data = [],
@@ -36,7 +40,7 @@
           });
         }
 
-        displayGraph(data);
+        return(data);
       }
 
       function projectStockPrice(currPrice, meanDailyChange, stdDevDailyChange) {
@@ -122,30 +126,36 @@
                 .attr("transform", `translate(${margin.left},${margin.top})`);
 
         // Add X axis --> it is a date format
+        const xExtent = d3.extent(data, function(d) { return d3.extent(d, function(e) { return e.date; }); });
+
         const x = d3.scaleTime()
-          .domain(d3.extent(data, function(d) { return d.date; }))
+          .domain(xExtent)
           .range([ 0, width ]);
         svg.append("g")
           .attr("transform", `translate(0, ${height})`)
           .call(d3.axisBottom(x));
     
-        // Add Y axis
+          // Add Y axis
+          const yExtent = d3.extent(data, function(d) { return d3.extent(d, function(e) { return +e.value; }); })  
+  
         const y = d3.scaleLinear()
-          .domain([(d3.min(data, function(d) { return +d.value; }) * 0.95), d3.max(data, function(d) { return +d.value; })])
+          .domain(yExtent)
           .range([ height, 0 ]);
         svg.append("g")
           .call(d3.axisLeft(y));
     
-        // Add the line
-        svg.append("path")
-          .datum(data)
-          .attr("fill", "none")
-          .attr("stroke", "steelblue")
-          .attr("stroke-width", 1.5)
-          .attr("d", d3.line()
-            .x(function(d) { return x(d.date) })
-            .y(function(d) { return y(d.value) })
-            )
+        // Add the lines
+        for(var i = 0; i < data.length; i++) {
+          svg.append("path")
+            .datum(data[i])
+            .attr("fill", "none")
+            .attr("stroke", "steelblue")
+            .attr("stroke-width", 1.5)
+            .attr("d", d3.line()
+              .x(function(d) { return x(d.date) })
+              .y(function(d) { return y(d.value) })
+              )
+        }
     
     }
 })()
