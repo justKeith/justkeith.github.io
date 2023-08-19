@@ -3,7 +3,7 @@
       const meanDailyChange = 0.00008;
       const stdDevDailyChange = 0.00012;
 
-      for(var i = 0; i < 1000; i++) {
+      for(var i = 0; i < 3; i++) {
         simulateYear();
       }
 
@@ -14,7 +14,11 @@
 
         for(var i = 0; i < 365; i++) {
           currentDate = new Date(currentDate.getTime() + 24 * 60 * 60 * 1000);
-          currentPrice = projectStockPrice(currentPrice, meanDailyChange, stdDevDailyChange)
+
+          var newPrice = projectStockPrice(currentPrice, meanDailyChange, stdDevDailyChange);
+
+          console.log(newPrice - currentPrice);
+          currentPrice = newPrice;
 
           data.push({
               date: currentDate,
@@ -27,7 +31,7 @@
 
       function projectStockPrice(currPrice, meanDailyChange, stdDevDailyChange) {
         const drift = meanDailyChange - (stdDevDailyChange * stdDevDailyChange) / 2;
-        const randomShock = stdDevDailyChange * Math.random();
+        const randomShock = stdDevDailyChange * normSinv(Math.random());
         return currPrice * Math.exp(drift + randomShock);
       }
 
