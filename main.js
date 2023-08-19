@@ -126,20 +126,22 @@
                 .attr("transform", `translate(${margin.left},${margin.top})`);
 
         // Add X axis --> it is a date format
-        const xExtent = d3.extent(data, function(d) { return d3.extent(d, function(e) { return e.date; }); });
+        const xMin = d3.min(data, function(d) { return d3.min(d, function(e) { return e.date; }); });
+        const xMax = d3.max(data, function(d) { return d3.max(d, function(e) { return e.date; }); });
 
         const x = d3.scaleTime()
-          .domain(xExtent)
+          .domain([xMin, xMax]])
           .range([ 0, width ]);
         svg.append("g")
           .attr("transform", `translate(0, ${height})`)
           .call(d3.axisBottom(x));
     
           // Add Y axis
-          const yExtent = d3.extent(data, function(d) { return d3.extent(d, function(e) { return +e.value; }); })  
+          const yMin = d3.extent(data, function(d) { return d3.min(d, function(e) { return +e.value; }); })  
+          const yMax = d3.extent(data, function(d) { return d3.max(d, function(e) { return +e.value; }); })  
   
         const y = d3.scaleLinear()
-          .domain(yExtent)
+          .domain([yMin, yMax]])
           .range([ height, 0 ]);
         svg.append("g")
           .call(d3.axisLeft(y));
