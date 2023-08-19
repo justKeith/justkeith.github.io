@@ -27,7 +27,7 @@
 
       function projectStockPrice(currPrice, meanDailyChange, stdDevDailyChange) {
         const drift = meanDailyChange - (stdDevDailyChange * stdDevDailyChange) / 2;
-        const randomShock = stdDevDailyChange * normSinv(Math.random());
+        const randomShock = stdDevDailyChange * Math.random();
         return currPrice * Math.exp(drift + randomShock);
       }
 
