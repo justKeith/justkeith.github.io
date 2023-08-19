@@ -12,10 +12,10 @@
 
       if (params.mean)   meanDailyChange   = parseFloat(params.mean);
       if (params.std)    stdDevDailyChange = parseFloat(params.std);
-      if (params.start)  startinge         = parseFloat(params.start);
+      if (params.start)  starting          = parseFloat(params.start);
 
       for(var i = 0; i < 3; i++) {
-        simulateYear();
+        simulateYear(starting);
       }
 
       function simulateYear() {
