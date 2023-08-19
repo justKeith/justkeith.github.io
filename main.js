@@ -8,7 +8,7 @@
           currentPrice = 1000;
 
       for(var i = 0; i < 365; i++) {
-        currentDate = new Date(date.getTime() + 24 * 60 * 60 * 1000);
+        currentDate = new Date(currentDate.getTime() + 24 * 60 * 60 * 1000);
         currentPrice = projectStockPrice(currentPrice, meanDailyChange, stdDevDailyChange)
 
         data.push({
