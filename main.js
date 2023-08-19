@@ -3,7 +3,7 @@
       const meanDailyChange = 0.00008;
       const stdDevDailyChange = 0.00012;
 
-      for(vat i = 0; i < 1000; i++) {
+      for(var i = 0; i < 1000; i++) {
         simulateYear();
       }
 
