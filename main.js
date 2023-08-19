@@ -137,8 +137,8 @@
           .call(d3.axisBottom(x));
     
         // Add Y axis
-        const yMin = d3.extent(data, function(d) { return d3.min(d, function(e) { return +e.value; }); })  
-        const yMax = d3.extent(data, function(d) { return d3.max(d, function(e) { return +e.value; }); })  
+        const yMin = d3.min(data, function(d) { return d3.min(d, function(e) { return +e.value; }); })  
+        const yMax = d3.max(data, function(d) { return d3.max(d, function(e) { return +e.value; }); })  
   
         const y = d3.scaleLinear()
           .domain([yMin, yMax])
