@@ -3,6 +3,7 @@
       var meanDailyChange = 0.0003626870482;
       var stdDevDailyChange = 0.0121599971;
       var starting = 4300;
+      var count = 5;
 
       const params = Object.fromEntries(
         location.search.slice(1).split('&').map(
@@ -13,10 +14,11 @@
       if (params.mean)   meanDailyChange   = parseFloat(params.mean);
       if (params.std)    stdDevDailyChange = parseFloat(params.std);
       if (params.start)  starting          = parseFloat(params.start);
+      if (params.start)  count             = parseFloat(params.count);
 
       var sims = [];
 
-      for(var i = 0; i < 5; i++) {
+      for(var i = 0; i < count; i++) {
         sims.push( simulateYear(starting) );
       }
 
@@ -114,8 +116,8 @@
      */
     function displayGraph(data) {
         const margin = {top: 10, right: 30, bottom: 30, left: 60},
-            width = 460 - margin.left - margin.right,
-            height = 400 - margin.top - margin.bottom;
+            width = 920 - margin.left - margin.right,
+            height = 800 - margin.top - margin.bottom;
     
         // append the svg object to the body of the page
         const svg = d3.select("#my_dataviz")
