@@ -5,7 +5,7 @@
       var starting = 4300;
       var count = 5;
 
-      import('/Simulation.js').then(function() {
+      import('/Simulation.js').then(function(Simulation) {
         var s = new Simulation(new Date(), newDate());
 
         console.log( s.run() );
