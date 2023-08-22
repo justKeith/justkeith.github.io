@@ -1,4 +1,4 @@
-import { run } from "SimulationRun";
+import { run } from "/SimulationRun";
 
 export class Simulation {
     #start = new Date();
