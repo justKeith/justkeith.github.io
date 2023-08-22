@@ -5,8 +5,8 @@
       var starting = 4300;
       var count = 5;
 
-      import('/Simulation.js').then(function(Simulation) {
-        var s = new Simulation(new Date(), new Date());
+      import('/Simulation.js').then(function(sim) {
+        var s = new sim.Simulation(new Date(Date.now() - 100000), new Date(Date.now() + 250000000));
 
         console.log( s.run() );
       })

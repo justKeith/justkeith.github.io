@@ -8,7 +8,7 @@ export class Simulation {
 
     constructor(start, end) {
         this.start = start;
-        this.endf = end;
+        this.end = end;
     }
 
     run() {
