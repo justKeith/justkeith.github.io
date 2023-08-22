@@ -6,7 +6,7 @@
       var count = 5;
 
       import('/Simulation.js').then(function(Simulation) {
-        var s = new Simulation(new Date(), newDate());
+        var s = new Simulation(new Date(), new Date());
 
         console.log( s.run() );
       })
