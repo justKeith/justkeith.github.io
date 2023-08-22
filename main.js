@@ -5,6 +5,11 @@
       var starting = 4300;
       var count = 5;
 
+      import('Simulation.js').then(function() {
+        var s = new Simulation(new Date(), newDate());
+
+        console.log( s.run() );
+      })
       const params = Object.fromEntries(
         location.search.slice(1).split('&').map(
           (pair) => pair.split('=')
