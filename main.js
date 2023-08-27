@@ -23,7 +23,7 @@
     sims.push(simulateYear(starting));
   }
 
-  displayGraph(sims);
+  util.displayLineGraph(sims, 'my_dataviz');
 
   function simulateYear(currentPrice) {
     let data = [],

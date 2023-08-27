@@ -8,7 +8,7 @@ export function projectValue(current, mean, std) {
 export const RATES = {
     // TODO This is still daily
     sp500_20: {
-        desc: "SP500 over the last 20 years", 
+        desc: "SP500 over the last 20 years",
         mean: 0.0003626870482,
         std: 0.0121599971
     },
@@ -19,6 +19,61 @@ export const RATES = {
         std: 0.01
     }
 };
+
+export function displayLineGraph(data, elementId) {
+    const margin = { top: 10, right: 30, bottom: 30, left: 60 },
+        width = 920 - margin.left - margin.right,
+        height = 800 - margin.top - margin.bottom;
+
+    if (Array.iaArray(data[0])) {
+        // So we have an array of arrayes whichis what we want.
+    } else {
+        data = [data];
+    }
+
+    // append the svg object to the body of the page
+    const svg = d3.select(elementId)
+        .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", `translate(${margin.left},${margin.top})`);
+
+    // Add X axis --> it is a date format
+    const xMin = d3.min(data, function (d) { return d3.min(d, function (e) { return e.date; }); });
+    const xMax = d3.max(data, function (d) { return d3.max(d, function (e) { return e.date; }); });
+
+    const x = d3.scaleTime()
+        .domain([xMin, xMax])
+        .range([0, width]);
+    svg.append("g")
+        .attr("transform", `translate(0, ${height})`)
+        .call(d3.axisBottom(x));
+
+    // Add Y axis
+    const yMin = d3.min(data, function (d) { return d3.min(d, function (e) { return +e.value; }); })
+    const yMax = d3.max(data, function (d) { return d3.max(d, function (e) { return +e.value; }); })
+
+    const y = d3.scaleLinear()
+        .domain([yMin, yMax])
+        .range([height, 0]);
+    svg.append("g")
+        .call(d3.axisLeft(y));
+
+    // Add the lines
+    for (var i = 0; i < data.length; i++) {
+        svg.append("path")
+            .datum(data[i])
+            .attr("fill", "none")
+            .attr("stroke", "steelblue")
+            .attr("stroke-width", 1.5)
+            .attr("d", d3.line()
+                .x(function (d) { return x(d.date) })
+                .y(function (d) { return y(d.value) })
+            )
+    }
+}
+
 
 export function normSinv(p) {
     const a1 = -3.969683028665376e1;
