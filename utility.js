@@ -7,16 +7,21 @@ export function projectValue(current, mean, std) {
 // These monthly means and standard deviations for various indexes.
 export const RATES = {
     // TODO This is still daily
-    sp500_20: {
+    sp500_20_daily: {
         desc: "SP500 over the last 20 years",
         mean: 0.0003626870482,
         std: 0.0121599971
     },
+    sp500_20_weekly: {
+        desc: "SP500 over the last 20 years",
+        mean: 0.001814751,
+        std: 0.02719058
+    },
     // TODO This is still annual
-    inflation_senior: {
+    inflation_senior_annual: {
         desc: "Inflationin the last 20 years but skewed for an older population",
-        mean: 0.03,
-        std: 0.01
+        mean: 0.0005686,
+        std: 0.00138675
     }
 };
 
@@ -25,7 +30,7 @@ export function displayLineGraph(data, elementId) {
         width = 920 - margin.left - margin.right,
         height = 800 - margin.top - margin.bottom;
 
-    if (Array.iaArray(data[0])) {
+    if (Array.isArray(data[0])) {
         // So we have an array of arrayes whichis what we want.
     } else {
         data = [data];
