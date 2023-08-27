@@ -1,4 +1,4 @@
-(function () {
+(async function main() {
   const util = await import('/utility.js');
 
   const params = Object.fromEntries(
