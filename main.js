@@ -31,7 +31,7 @@
 
     for (var i = 0; i < 365; i++) {
       currentDate = new Date(currentDate.getTime() + 24 * 60 * 60 * 1000);
-      currentPrice = util.projectVaule(currentPrice, meanDailyChange, stdDevDailyChange);
+      currentPrice = util.projectValue(currentPrice, meanDailyChange, stdDevDailyChange);
 
       data.push({
         date: currentDate,
