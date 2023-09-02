@@ -3,7 +3,6 @@ export class Base {
 
     constructor(name) {
         this.#name = name;
-        this.#balance = balance;
     }
 }
 
