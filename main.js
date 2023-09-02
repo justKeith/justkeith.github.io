@@ -4,6 +4,8 @@
 
   var a = new test.Ext('me', 26);
   console.log(a);
+  console.log(a.name);
+  console.log(a.#name);
 
   const params = Object.fromEntries(
     location.search.slice(1).split('&').map(
