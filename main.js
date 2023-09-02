@@ -1,5 +1,9 @@
 (async function main() {
   const util = await import('/utility.js');
+  const test = await import('/Test.js');
+
+  var a = new test.Ext('me', 26);
+  console.log(a);
 
   const params = Object.fromEntries(
     location.search.slice(1).split('&').map(
@@ -30,7 +34,7 @@
       currentDate = new Date();
 
     for (var i = 0; i < 52; i++) {
-      currentDate = new Date(currentDate.getTime() + 24 * 60 * 60 * 1000);
+      currentDate = new Date(currentDate.getTime() + 7 * (24 * 60 * 60 * 1000));
       currentPrice = util.projectValue(currentPrice, meanDailyChange, stdDevDailyChange);
 
       data.push({
