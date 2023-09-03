@@ -2,7 +2,7 @@ class Account {
     #name;
     #balanceDate;
     #balance;
-    #history;
+    #history = [];
 
     constructor(name, balance) {
         if (name instanceof Account) {
