@@ -2,8 +2,8 @@
   const util = await import('/utility.js');
   const acct = await import('/Account.js');
 
-  var acct = new acct.FixedInterestAccount('Savings', 10000, 0.0235);
-  var test = acct.start(new Date());
+  var savings = new acct.FixedInterestAccount('Savings', 10000, 0.0235);
+  var test = savings.start(new Date());
 
   console.log(test);
 
