@@ -73,6 +73,8 @@ export class FixedInterestAccount extends Account {
             balanceDate: startDate,
             balance: this.getBalance()
         })
+
+        return(result);
     }
 
     step(date) {
