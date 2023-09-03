@@ -2,6 +2,7 @@ export class Account {
     #name;
     #balanceDate;
     #balance;
+    #history;
 
     constructor(name, balance) {
         this.#name = name;
@@ -31,13 +32,16 @@ export class FixedInterestAccount extends Account {
         this.#rate = rate;
     }
 
-    step(date) {
-        if (this.#now == null) {
-            // First call so we simply record this as the balnce date
-        } else if (date.getMonth() != this.#now.getMonth()) {
-            // New month so we compute interst
-        }
+    start(date) {
+        var result = Object.create(this);
+        this.#balanceDate = date;
+        this.#history = [];
+    }
 
-        this.#now = date;
+    step(date) {
+    }
+
+    getRate() {
+        return (this.#rate);
     }
 }

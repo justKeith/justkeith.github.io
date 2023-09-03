@@ -1,11 +1,11 @@
 (async function main() {
   const util = await import('/utility.js');
-  const test = await import('/Test.js');
+  const acct = await import('/Account.js');
 
-  var a = new test.Ext('me', 26);
-  console.log(a);
-  console.log(a.name);
-  console.log(a.#name);
+  var acct = new FixedInterestAccount('Savings', 10000, 0.0235);
+  var test = acct.start(new Date());
+
+  console.log(test);
 
   const params = Object.fromEntries(
     location.search.slice(1).split('&').map(
