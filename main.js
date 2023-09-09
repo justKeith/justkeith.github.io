@@ -13,8 +13,8 @@
     )
   );
 
-  var meanDailyChange = util.RATES.sp500_20_daily.mean;
-  var stdDevDailyChange =  util.RATES.sp500_20_daily.std;
+  var meanDailyChange = util.RATES.sp500_20_weekly.mean;
+  var stdDevDailyChange =  util.RATES.sp500_20_weekly.std;
   var starting = 4300;
   var count = 5;
 
@@ -34,6 +34,11 @@
   function simulateYear(currentPrice) {
     let data = [],
       currentDate = new Date();
+
+      data.push({
+        date: currentDate,
+        value: currentPrice
+      });
 
     for (var i = 0; i < 52; i++) {
       currentDate = new Date(currentDate.getTime() + 7 * (24 * 60 * 60 * 1000));
