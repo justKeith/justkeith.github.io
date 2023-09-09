@@ -20,8 +20,11 @@ export class Simulation {
 
         do {
             run.step(counter);
-            
+
+            // Advance one day
             counter = new Date( counter.getTime() + (24 * 60 * 60 * 1000) );
         } while(counter.getTime() < this.#end.getTime());
+
+        return( run );
     }
 }
