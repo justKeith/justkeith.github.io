@@ -9,18 +9,18 @@ export const RATES = {
     // TODO This is still daily
     sp500_20_daily: {
         desc: "SP500 over the last 20 years",
-        mean: 0.0002108743983,
-        std: 0.0121599971
+        mean: 0.0002486276328,
+        std: 0.01344955803
     },
     sp500_20_weekly: {
         desc: "SP500 over the last 20 years",
-        mean: 0.001481115792,
-        std: 0.02719058
+        mean: 0.0012437564747,
+        std: 0.030074126022
     },
     sp500_20_monthly: {
         desc: "SP500 over the last 20 years",
-        mean: 0.006434030110,
-        std: 0.02719058
+        mean: 0.0052341820495,
+        std: 0.061633617736
     },
     // TODO This is still annual
     inflation_senior_annual: {
