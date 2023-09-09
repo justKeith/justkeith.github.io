@@ -9,12 +9,17 @@ export const RATES = {
     // TODO This is still daily
     sp500_20_daily: {
         desc: "SP500 over the last 20 years",
-        mean: 0.0003626870482,
+        mean: 0.0002108743983,
         std: 0.0121599971
     },
     sp500_20_weekly: {
         desc: "SP500 over the last 20 years",
-        mean: 0.001814751,
+        mean: 0.001481115792,
+        std: 0.02719058
+    },
+    sp500_20_monthly: {
+        desc: "SP500 over the last 20 years",
+        mean: 0.006434030110,
         std: 0.02719058
     },
     // TODO This is still annual

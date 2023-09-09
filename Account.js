@@ -141,10 +141,10 @@ export class InvestmentAccount extends Account {
     step(stepDate) {
         if (stepDate.getMonth() > this.getBalanceDate().getMonth()) {
             // TODO compute new balance
-            var marketReturn = util.projectValue(this.getBalance(), this.getMean(), this.getStd());; 
+            var newBalance = util.projectValue(this.getBalance(), this.getMean(), this.getStd());
 
             // TODO add history
-            this.addHistory( { balanceDate: stepDate, balance: (this.getBalance() + marketReturn), action: 'return' })
+            this.addHistory( { balanceDate: stepDate, balance: newBalance, action: 'return' });
         }
     }
 
