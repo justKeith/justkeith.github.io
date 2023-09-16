@@ -4,23 +4,36 @@ export function projectValue(current, mean, std) {
     return current * Math.exp(drift + randomShock);
 }
 
+// This scsales a standard deviation (std) over one interval to a 
+// standard deviation over another interval. So if you had a std
+// for the year and wanted the daily value
+//
+//      var dailyStd = scaleStd( annualStd, -365 )
+// 
+// and going in the other direction would be
+//
+//      var annualStd = scaleStd(dailyStd, 365)
+//
+export function scaleStd(std, factor) {
+    const sqr = Math.sqrt( Math.abs(factor) );
+
+    if (factor < 0) {
+        return( std / sqr );
+    } else {
+        return( std * sqr );
+    }
+
+    return(std);
+}
+
+
 // These monthly means and standard deviations for various indexes.
 export const RATES = {
     // TODO This is still daily
     sp500_20_daily: {
         desc: "SP500 over the last 20 years",
-        mean: 0.0002486276328,
-        std: 0.01344955803
-    },
-    sp500_20_weekly: {
-        desc: "SP500 over the last 20 years",
-        mean: 0.0012437564747,
-        std: 0.030074126022
-    },
-    sp500_20_monthly: {
-        desc: "SP500 over the last 20 years",
-        mean: 0.0052341820495,
-        std: 0.061633617736
+        mean: 0.0003626870482,
+        std: 0.01215884683
     },
     // TODO This is still annual
     inflation_senior_annual: {
