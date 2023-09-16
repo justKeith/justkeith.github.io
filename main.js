@@ -2,9 +2,9 @@
   var util = null;
   var acct = null;
 
-  [ util, acct ] = await Promise.all( 
+  [ util, acct ] = await Promise.all( [
                     import('/utility.js'),
-                    import('/Account.js') );
+                    import('/Account.js') ] );
 
   var savings = new acct.FixedInterestAccount('Savings', 10000, 0.0235);
   var test = savings.start(new Date());
