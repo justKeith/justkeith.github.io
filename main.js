@@ -1,6 +1,10 @@
 (async function main() {
-  const util = await import('/utility.js');
-  const acct = await import('/Account.js');
+  var util = null;
+  var acct = null;
+
+  [ util, acct ] = await Promise.all( 
+                    import('/utility.js'),
+                    import('/Account.js') );
 
   var savings = new acct.FixedInterestAccount('Savings', 10000, 0.0235);
   var test = savings.start(new Date());
