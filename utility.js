@@ -1,4 +1,4 @@
-export function projectValue(current, mean, std) {
+export function projectValue(current, mean, std, history) {
     const drift = mean - (std * std) / 2;
     const randomShock = std * normSinv(Math.random());
     return current * Math.exp(drift + randomShock);

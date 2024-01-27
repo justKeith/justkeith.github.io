@@ -44,7 +44,7 @@
         value: currentPrice
       });
 
-    for (var i = 0; i <365; i++) {
+    for (var i = 0; i <352; i++) {
       currentDate = new Date(currentDate.getTime() + (24 * 60 * 60 * 1000));
       currentPrice = util.projectValue(currentPrice, meanDailyChange, stdDevDailyChange);
 
