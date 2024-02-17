@@ -2,12 +2,12 @@
   var util = null;
   var acct = null;
 
-  [ util, acct, SimEntry ] = await Promise.all( [
+  [ util, acct, sim ] = await Promise.all( [
                     import('/utility.js'),
                     import('/Account.js'),
                     import('/Simulation.js') ] );
 
-  var sim = new Simulation(new Date(), new Date());
+  var sim = new sim.Simulation(new Date(), new Date());
 
   console.log(sim.test());
 

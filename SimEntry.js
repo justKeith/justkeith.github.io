@@ -28,7 +28,7 @@ export class SimEntry {
     static subclasses = {};
 
     static createFromList(jArray) {
-        return new subclasses['const']("Taxes", {}, {});
+        return new SimEntry.subclasses['const']("Taxes", {}, {});
     }
 
     static registerSubclass(subclass) {
