@@ -28,10 +28,10 @@ export class SimEntry {
     static subclasses = {};
 
     static createFromList(jArray) {
-
+        return new subclasses['const']("Taxes", {}, {});
     }
 
     static registerSubclass(subclass) {
-        console.log(subclass);
+        SimEntry.subclasses[subclass.classToken] = subclass;
     }
 }

@@ -2,14 +2,17 @@
   var util = null;
   var acct = null;
 
-  [ util, acct ] = await Promise.all( [
+  [ util, acct, SimEntry ] = await Promise.all( [
                     import('/utility.js'),
-                    import('/Account.js') ] );
+                    import('/Account.js'),
+                    import('/SimEntry.js') ] );
+
+  var sim = SimEntry.createFromList([]);
+
+  console.log(sim);
 
   var savings = new acct.FixedInterestAccount('Savings', 10000, 0.0235);
   var test = savings.start(new Date());
-
-  console.log(test);
 
   const params = Object.fromEntries(
     location.search.slice(1).split('&').map(
