@@ -1,4 +1,4 @@
-class SimEntry {
+export class SimEntry {
     /** name (String) Name of the entry */
     #name;
 
