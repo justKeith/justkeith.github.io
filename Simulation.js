@@ -1,4 +1,6 @@
 import { SimulationRun } from "/SimulationRun.js";
+import { SimEntry } from "/SimEntry.js";
+import { SimEntryConstants } from "/SimEntryConstants.js";
 
 export class Simulation {
     #start = new Date();
@@ -12,6 +14,12 @@ export class Simulation {
 
         this.#start.setHours(12, 0, 0);
         this.#end.setHours(12, 0, 0);
+    }
+
+    test() {
+        var sim = SimEntry.createFromList([]);
+
+        return( sim ) ;
     }
 
     run() {

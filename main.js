@@ -5,11 +5,11 @@
   [ util, acct, SimEntry ] = await Promise.all( [
                     import('/utility.js'),
                     import('/Account.js'),
-                    import('/SimEntry.js') ] );
+                    import('/Simulation.js') ] );
 
-  var sim = SimEntry.createFromList([]);
+  var sim = new Simulation(new Date(), new Date());
 
-  console.log(sim);
+  console.log(sim.test());
 
   var savings = new acct.FixedInterestAccount('Savings', 10000, 0.0235);
   var test = savings.start(new Date());
