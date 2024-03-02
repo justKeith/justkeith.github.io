@@ -40,7 +40,7 @@ export class SimEntry {
     static createFromList(jArray) {
         var result = [];
 
-        for(var entry in jArray) {
+        for(var entry of jArray) {
             result.push( new SimEntry.subclasses[entry.token](entry) );
         }
 
