@@ -3,9 +3,22 @@ import { SimEntry } from "/SimEntry.js";
 export class SimEntryConstants extends SimEntry { 
     #values;
 
-    constructor(name, inputs, values) {
-        super(name, inputs);
-        this.#values = values;
+    getValues() {
+        return (this.#values);
+    }
+
+    toJson() {
+        var result = super.toJson();
+
+        result.value = getValues();
+
+        return( result );
+    }
+
+    constructor(json) {
+        super(json);
+
+        this.#values = json.values | {};
     }
 
     static classToken = "const";

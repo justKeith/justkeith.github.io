@@ -20,15 +20,31 @@ export class SimEntry {
         return (this.#inputs);
     }
 
-    constructor(name, inputs) {
-        this.#name = name;
-        this.#inputs = inputs;
+    toJson() {
+        var result = {
+            token: this.classToken,
+            name: this.getName(),
+            inputs: this.getInputs()
+        };
+
+        return( result );
+    }
+
+    constructor(json) {
+        this.#name = json.name;
+        this.#inputs = json.inputs;
     }
 
     static subclasses = {};
 
     static createFromList(jArray) {
-        return new SimEntry.subclasses['const']("Taxes", {}, {});
+        var result = [];
+
+        for(var entry in jArray) {
+            result.push( new SimEntry.subclasses[entry.token](entry) );
+        }
+
+        return( result );
     }
 
     static registerSubclass(subclass) {
