@@ -8,7 +8,7 @@ class SimEntryElement extends HTMLElement {
       const template = document.getElementById(
         "element-details-template",
       ).content;
-      
+
       const shadowRoot = this.attachShadow({ mode: "open" });
       shadowRoot.appendChild(template.cloneNode(true));
     }
@@ -30,4 +30,4 @@ class SimEntryElement extends HTMLElement {
     }
   }
   
-  customElements.define("SimEntry-element", MyCustomElement);
+  customElements.define("SimEntry-element", SimEntryElement);
