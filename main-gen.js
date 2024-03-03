@@ -5,7 +5,8 @@
   
     [ { SimEntry }, {SimEntryConstants} ] = await Promise.all( [
                       import('/SimEntry.js'),
-                      import('/SimEntryConstants.js')
+                      import('/SimEntryConstants.js'),
+                      import('/SimEntryElement.js')
                     ] );
     
     var data = {

@@ -18,7 +18,7 @@ export class SimEntryConstants extends SimEntry {
     constructor(json) {
         super(json);
 
-        this.#values = json.values | {};
+        this.#values = json.values || {};
     }
 
     static classToken = "const";
