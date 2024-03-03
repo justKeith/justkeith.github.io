@@ -15,8 +15,8 @@ class SimEntryElement extends HTMLElement {
         "SimEntry-element-template",
       ).content;
 
-      shadowRoot = this.attachShadow({ mode: "open" });
-      shadowRoot.appendChild(template.cloneNode(true));
+      this.shadowRoot = this.attachShadow({ mode: "open" });
+      this.shadowRoot.appendChild(template.cloneNode(true));
     }
   
     connectedCallback() {
