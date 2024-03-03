@@ -6,7 +6,7 @@ class SimEntryElement extends HTMLElement {
       super();
 
       const template = document.getElementById(
-        "element-details-template",
+        "SimEntry-element-template",
       ).content;
 
       const shadowRoot = this.attachShadow({ mode: "open" });
