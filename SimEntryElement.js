@@ -1,6 +1,8 @@
 class SimEntryElement extends HTMLElement {
     static observedAttributes = ["color", "size"];
 
+    shadowRoot;
+
     bindEntry(entry) {
         console.log(entry);
     }
@@ -13,7 +15,7 @@ class SimEntryElement extends HTMLElement {
         "SimEntry-element-template",
       ).content;
 
-      const shadowRoot = this.attachShadow({ mode: "open" });
+      shadowRoot = this.attachShadow({ mode: "open" });
       shadowRoot.appendChild(template.cloneNode(true));
     }
   
