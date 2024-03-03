@@ -1,5 +1,9 @@
 class SimEntryElement extends HTMLElement {
     static observedAttributes = ["color", "size"];
+
+    bindEntry(entry) {
+        console.log(entry);
+    }
   
     constructor() {
       // Always call super first in constructor

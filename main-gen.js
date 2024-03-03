@@ -21,5 +21,9 @@
         ]
     };
 
-    console.log( SimEntry.createFromList(data.entries) );
+    let entries = SimEntry.createFromList(data.entries);
+
+    let sample= document.getElementById("account-sample");
+
+    sample.bindEntry(entries[0]);
 })()
