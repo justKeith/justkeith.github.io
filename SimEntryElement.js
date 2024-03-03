@@ -30,4 +30,4 @@ class SimEntryElement extends HTMLElement {
     }
   }
   
-  customElements.define("SimEntry-element", SimEntryElement);
+  customElements.define("simentry-element", SimEntryElement);
