@@ -14,6 +14,7 @@
             {
                 token: "const",
                 name: "environment",
+                Label: "Environment Constants",
                 values: [
                     { name: "inflation", value: 0.03 }
                 ]
